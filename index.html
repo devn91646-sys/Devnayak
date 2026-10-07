@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev Nayak | Portfolio</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#080a08;
+  --card:#141514;
+  --text:#f5f5f5;
+  --neon:#b8ff00;
+  --line:#222522;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  padding-bottom:92px;
+}
+
+/* HEADER */
+header{
+  height:88px;
+  display:flex;
+  align-items:center;
+  padding:0 22px;
+  border-bottom:1px solid var(--line);
+  background:#0b0c0b;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.brand{
+  font-size:28px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.code{
+  color:var(--neon);
+  font-size:32px;
+}
+
+/* LIVE BAR */
+.livebar{
+  width:min(94%,760px);
+  margin:18px auto 0;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.live{
+  background:#111411;
+  border:1px solid #2a322a;
+  border-radius:12px;
+  padding:10px 16px;
+  color:#ddd;
+}
+
+.live strong{
+  color:var(--neon);
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:700px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+  radial-gradient(
+    circle at 50% 40%,
+    rgba(184,255,0,.09),
+    transparent 38%
+  ),
+  linear-gradient(#090b09,#080a08);
+}
+
+.photo-wrap{
+  width:min(78vw,430px);
+  height:520px;
+  border-radius:45% 45% 28% 28% /
+               28% 28% 18% 18%;
+  overflow:hidden;
+  border:1px solid #2a302a;
+  box-shadow:0 0 45px rgba(184,255,0,.08);
+  background:#151815;
+}
+
+.photo-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* MESSAGE BOXES */
+.bubble{
+  position:absolute;
+  background:rgba(20,21,20,.96);
+  border:1px solid #303330;
+  border-left:5px solid var(--neon);
+  border-radius:13px;
+  padding:14px 16px;
+  width:230px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  z-index:5;
+  animation:float 3.8s ease-in-out infinite;
+}
+
+.bubble b{
+  display:block;
+  color:var(--neon);
+  text-align:center;
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.bubble p{
+  text-align:center;
+  color:#eee;
+  line-height:1.35;
+  font-size:16px;
+}
+
+.b1{
+  left:3%;
+  top:120px;
+}
+
+.b2{
+  right:2%;
+  top:180px;
+  animation-delay:.4s;
+}
+
+.b3{
+  left:0;
+  top:330px;
+  animation-delay:.8s;
+}
+
+.b4{
+  right:4%;
+  top:410px;
+  animation-delay:1.2s;
+}
+
+.b5{
+  left:7%;
+  bottom:65px;
+  animation-delay:1.6s;
+}
+
+.b6{
+  right:10%;
+  bottom:90px;
+  animation-delay:2s;
+}
+
+@keyframes float{
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+/* INFO */
+.info{
+  width:min(94%,760px);
+  margin:-24px auto 40px;
+  position:relative;
+  z-index:8;
+  background:rgba(14,16,14,.96);
+  border:1px solid #273027;
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+}
+
+.info h2{
+  color:var(--neon);
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.info p{
+  color:#ddd;
+  line-height:1.6;
+}
+
+.stats{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:17px;
+}
+
+.stat{
+  padding:10px 16px;
+  background:#f5f5f5;
+  color:#141414;
+  border-radius:8px;
+  font-weight:700;
+}
+
+/* SECTIONS */
+.section{
+  width:min(92%,760px);
+  margin:25px auto;
+  padding:22px;
+  background:#111311;
+  border:1px solid #242724;
+  border-radius:16px;
+}
+
+.section h3{
+  color:var(--neon);
+  margin-bottom:12px;
+}
+
+.section p{
+  color:#d1d1d1;
+  line-height:1.65;
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+.skill{
+  border:1px solid #3b463b;
+  border-radius:20px;
+  padding:9px 13px;
+  color:#eee;
+  background:#0d100d;
+}
+
+.skill:hover{
+  border-color:var(--neon);
+  color:var(--neon);
+}
+
+/* INSTAGRAM CONTACT */
+.contact-btn{
+  display:inline-block;
+  margin-top:16px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:var(--neon);
+  color:#101010;
+  text-decoration:none;
+  font-weight:800;
+}
+
+/* LIKE */
+.heart{
+  position:fixed;
+  left:22px;
+  bottom:106px;
+  z-index:30;
+  background:rgba(24,24,24,.93);
+  border:1px solid #333;
+  border-radius:40px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.heart span:first-child{
+  font-size:28px;
+}
+
+/* WHATSAPP */
+.wa{
+  position:fixed;
+  right:22px;
+  bottom:104px;
+  z-index:30;
+  width:66px;
+  height:66px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#1ed760;
+  color:white;
+  text-decoration:none;
+  font-size:32px;
+}
+
+/* INSTAGRAM */
+.instagram{
+  position:fixed;
+  right:100px;
+  bottom:104px;
+  z-index:30;
+  width:66px;
+  height:66px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#e1306c;
+  color:white;
+  text-decoration:none;
+  font-size:36px;
+  font-weight:700;
+}
+
+/* TOP BUTTON */
+.topbtn{
+  position:fixed;
+  right:20px;
+  bottom:190px;
+  z-index:31;
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:50%;
+  background:#1a1d1a;
+  color:var(--neon);
+  font-size:22px;
+  display:none;
+  cursor:pointer;
+}
+
+/* BOTTOM MENU */
+nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:82px;
+  z-index:40;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:#101110;
+  border-top:1px solid #232423;
+}
+
+nav a{
+  color:#a9aaa9;
+  text-decoration:none;
+  font-size:25px;
+  text-align:center;
+  transition:.2s;
+}
+
+nav a.active,
+nav a:hover{
+  color:var(--neon);
+  transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .brand{
+    font-size:23px;
+  }
+
+  .code{
+    font-size:28px;
+  }
+
+  .hero{
+    min-height:640px;
+  }
+
+  .photo-wrap{
+    width:72vw;
+    height:430px;
+  }
+
+  .bubble{
+    width:175px;
+    padding:10px 11px;
+  }
+
+  .bubble b{
+    font-size:13px;
+  }
+
+  .bubble p{
+    font-size:14px;
+  }
+
+  .b1{
+    left:2%;
+    top:90px;
+  }
+
+  .b2{
+    right:1%;
+    top:150px;
+  }
+
+  .b3{
+    left:-5%;
+    top:290px;
+  }
+
+  .b4{
+    right:-4%;
+    top:330px;
+  }
+
+  .b5{
+    left:2%;
+    bottom:45px;
+  }
+
+  .b6{
+    right:2%;
+    bottom:62px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <span class="code">&lt;/&gt;</span>
+    Dev Nayak
+  </div>
+</header>
+
+<!-- CLOCK -->
+<div class="livebar">
+
+  <div class="live">
+    🕒 <strong id="clock">--:--:--</strong>
+  </div>
+
+  <div class="live">
+    📅 <strong id="date">--/--/----</strong>
+  </div>
+
+  <div class="live">
+    🟢 Online
+  </div>
+
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="photo-wrap">
+
+    <!-- Yahan aapki photo hai -->
+    <img
+      src="1000001689.jpg"
+      alt="Dev Nayak"
+    >
+
+  </div>
+
+  <!-- MESSAGE 1 -->
+  <div class="bubble b1">
+    <b>FRIEND</b>
+    <p>Hello Dev! Kaise ho?</p>
+  </div>
+
+  <!-- MESSAGE 2 -->
+  <div class="bubble b2">
+    <b>GAMER</b>
+    <p>Game website mast hai 🔥</p>
+  </div>
+
+  <!-- MESSAGE 3 -->
+  <div class="bubble b3">
+    <b>CODER</b>
+    <p>I am learning HTML!</p>
+  </div>
+
+  <!-- MESSAGE 4 -->
+  <div class="bubble b4">
+    <b>STUDENT</b>
+    <p>Keep learning bro 💻</p>
+  </div>
+
+  <!-- MESSAGE 5 -->
+  <div class="bubble b5">
+    <b>DEV</b>
+    <p>Welcome to my website ✨</p>
+  </div>
+
+  <!-- MESSAGE 6 -->
+  <div class="bubble b6">
+    <b>VISITOR</b>
+    <p>Nice portfolio!</p>
+  </div>
+
+</section>
+
+<!-- INFO -->
+<section class="info">
+
+  <h2>
+    🏆 Welcome to Dev's Website
+  </h2>
+
+  <p>
+    Class 9 student • Learning coding •
+    HTML websites • Games • AI
+  </p>
+
+  <div class="stats">
+
+    <div class="stat">
+      👥 Visitors
+      <span id="visitors">57</span>
+    </div>
+
+    <div class="stat">
+      💻 Projects 12
+    </div>
+
+    <div class="stat">
+      ⭐ Stars 99
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+
+  <h3>About Me</h3>
+
+  <p>
+    Namaste! Mera naam Dev Nayak hai.
+    Mujhe coding, HTML websites aur browser
+    games banana pasand hai.
+    Main naye projects seekh raha hoon aur
+    apni skills ko improve kar raha hoon.
+  </p>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+
+  <h3>My Projects</h3>
+
+  <p>
+    🚗 Racing Game
+    &nbsp; • &nbsp;
+    🤖 AI Chatbot
+    &nbsp; • &nbsp;
+    ♟️ Chess Website
+    &nbsp; • &nbsp;
+    📚 Study Help Website
+  </p>
+
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+
+  <h3>My Skills</h3>
+
+  <p>
+    Main abhi in skills ko seekh raha hoon:
+  </p>
+
+  <div class="skills">
+
+    <span class="skill">HTML</span>
+    <span class="skill">CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Game Making</span>
+    <span class="skill">AI</span>
+    <span class="skill">Web Design</span>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+
+  <h3>Contact Me</h3>
+
+  <p>
+    Website pasand aaye to Instagram par
+    message kar sakte hain.
+  </p>
+
+  <a
+    class="contact-btn"
+    href="https://www.instagram.com/dev___nayak___18?stkn=MWc0YjVyenZ1cWNwZw=="
+    target="_blank"
+  >
+    📸 Instagram Profile
+  </a>
+
+</section>
+
+<!-- TOP BUTTON -->
+<button
+  class="topbtn"
+  id="topBtn"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+  ↑
+</button>
+
+<!-- LIKE -->
+<div class="heart" onclick="likeSite()">
+
+  <span>💗</span>
+
+  <span id="likes">
+    260
+  </span>
+
+</div>
+
+<!-- INSTAGRAM BUTTON -->
+<a
+  class="instagram"
+  href="https://www.instagram.com/dev___nayak___18?stkn=MWc0YjVyenZ1cWNwZw=="
+  target="_blank"
+>
+  ◎
+</a>
+
+<!-- WHATSAPP -->
+<a
+  class="wa"
+  href="https://wa.me/"
+  target="_blank"
+>
+  ☎
+</a>
+
+<!-- BOTTOM MENU -->
+<nav>
+
+  <a
+    class="active"
+    href="#home"
+  >
+    ⌂
+  </a>
+
+  <a href="#about">
+    💼
+  </a>
+
+  <a href="#projects">
+    ◆
+  </a>
+
+  <a href="#projects">
+    ♫
+  </a>
+
+  <a href="#about">
+    ▤
+  </a>
+
+  <a href="#about">
+    💬
+  </a>
+
+  <a
+    href="https://www.instagram.com/dev___nayak___18?stkn=MWc0YjVyenZ1cWNwZw=="
+    target="_blank"
+  >
+    ◎
+  </a>
+
+  <a href="#about">
+    ⚙
+  </a>
+
+</nav>
+
+<script>
+
+/* LIKE SYSTEM */
+
+let likes =
+  Number(
+    localStorage.getItem("devLikes") || 260
+  );
+
+document.getElementById("likes")
+  .textContent = likes;
+
+function likeSite(){
+
+  likes++;
+
+  localStorage.setItem(
+    "devLikes",
+    likes
+  );
+
+  document.getElementById("likes")
+    .textContent = likes;
+}
+
+
+/* VISITOR COUNTER */
+
+let visitors =
+  Number(
+    localStorage.getItem("devVisits") || 56
+  ) + 1;
+
+localStorage.setItem(
+  "devVisits",
+  visitors
+);
+
+document.getElementById("visitors")
+  .textContent = visitors;
+
+
+/* CLOCK + DATE */
+
+function updateDateTime(){
+
+  const now = new Date();
+
+  document.getElementById("clock")
+    .textContent =
+    now.toLocaleTimeString("en-IN");
+
+  document.getElementById("date")
+    .textContent =
+    now.toLocaleDateString("en-IN");
+
+}
+
+updateDateTime();
+
+setInterval(
+  updateDateTime,
+  1000
+);
+
+
+/* TOP BUTTON */
+
+const topBtn =
+  document.getElementById("topBtn");
+
+window.addEventListener(
+  "scroll",
+  function(){
+
+    if(window.scrollY > 350){
+
+      topBtn.style.display = "grid";
+
+    }else{
+
+      topBtn.style.display = "none";
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+  </html>
